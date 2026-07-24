@@ -1247,7 +1247,9 @@ const CATALOGUE = {
           {name:'Zinc Chromate Primer | 5 kg',  desc:'Anti corrosive 5 kg metal primer.',  img:'catalog/primer2', brand:'brandglatino', specs:['Quick Dry','Thick Coat','Long-lasting']},
           {name:'Zinc Chromate Primer | 20 kg', desc:'Anti corrosive 20 kg metal primer.', img:'catalog/primer1', brand:'brandglatino', specs:['Quick Dry','Thick Coat','Long-lasting']},
           
-          {name:'Paint Roller', desc:'Roller for applying paint or primer on flat surfaces.', img:'catalog/paint_roller', brand:'brandglatino', specs:['Roller','For Primer','For Paint']}
+          {name:'Oil Paint Roller', desc:'Smooth, low-lint roller refill designed for even oil-based paint application.', img:'catalog/waterrefill3', brand:'brandglatino', specs:['Roller','For Primer','For Paint']},
+          {name:'Water Paint Roller', desc:'High-absorption roller refill for smooth and even water-based paint coverage.', img:'catalog/oilrefill3', brand:'brandglatino', specs:['Roller','For Primer','For Paint']},
+          {name:'Paint Roller Frame', desc:'Durable ergonomic frame compatible with all roller refills of matching size.', img:'catalog/pr3', brand:'brandglatino', specs:['Roller Frame','For Paint']},
         ]
       },
       barrow: {
@@ -1272,7 +1274,9 @@ const CATALOGUE = {
         label: 'Wire Mesh, Kawat Ikat, & Mur',
         desc: 'Wire mesh, binding wire, and hex nuts for construction and fencing use.',
         items: [
-          {name:'Welded Wire Mesh', desc:'PVC-coated welded wire mesh.', img:'catalog/wiremesh', brand:'brandglatino', specs:['PVC Coated','Weatherproof','Easy to Install']},
+          {name:'PVC Coated Welded Wire Mesh', desc:'PVC-coated welded wire mesh.', img:'catalog/pwiremesh', brand:'brandglatino', specs:['PVC Coated','Weatherproof','Easy to Install']},
+
+          {name:'Galvanized Wire Mesh', desc:'Galvanized welded wire mesh.', img:'catalog/gwiremesh', brand:'brandglatino', specs:['Galvanized Steel','Weatherproof','Strong Structure']},
           
           {name:'Kawat Ikat | BWG-20', desc:'Galvanized binding wire.', img:'catalog/kawat_ikat', brand:'brandglatino', specs:['Galvanized Steel Wire','Strong & Flexible ','Corrosion Resistant']},
           
@@ -1615,21 +1619,7 @@ function renderCards(items) {
   }).join('');
 
   initAcpCarousels();
-
-  // ===== DOWNLOAD CATALOGUE =====
-  const downloadSection = document.getElementById('download-catalog');
-  const showDownload =
-    activeCat === 'aluminium' &&
-    activeSub === 'ecoslddoor';
-    
-    if (showDownload) {
-      downloadSection.innerHTML = buildDownloadCatalog();
-      downloadSection.style.display = 'block';
-    } else {
-      downloadSection.innerHTML = '';
-      downloadSection.style.display = 'none';
-    }
-  }
+}
 
   // ── ACP BRAND CAROUSEL (arrows, dots, swipe) — seamless infinite loop
   function initAcpCarousels() {
@@ -1730,29 +1720,6 @@ function renderCards(items) {
     });
   }
   
-  // ── DOWNLOAD CATALOG
-  function buildDownloadCatalog() {
-    return `
-    <div class="download-catalog">
-      <div class="dl-image">
-        <img src="img/catalog.jpeg" alt="Catalogue">
-      </div>
-      
-      <div class="dl-content">
-        <h3>Need the Complete Catalogue?</h3>
-        <p>
-          Download the full product catalogue including
-          specifications, dimensions and finishes.
-        </p>
-
-        <a href="pdf/Catalog GAA.pdf" target="_blank" rel="noopener" class="dl-btn">
-          <i class="fa-solid fa-download"></i>
-          Download Catalogue
-        </a>
-      </div>
-    </div>`;
-  }
-
 // ── SORT
 document.getElementById('sort-select').addEventListener('change', function () {
   const items = [...CATALOGUE[activeCat].subCats[activeSub].items];
