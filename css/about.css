@@ -845,7 +845,6 @@ section {
     max-width: 600px;
 }
 .video-wrapper {
-    aspect-ratio: 16 / 9;
     background: #000;
     border-radius: 16px;
     box-shadow: 0 30px 70px rgba(0,0,0,0.18);
@@ -857,7 +856,7 @@ section {
 .video-wrapper video {
     display: block;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 }
 .video-fallback-play {
@@ -926,7 +925,6 @@ section {
     position: relative;
 }
 .gallery-viewport {
-    border-radius: 14px;
     overflow: hidden;
 }
 .gallery-track {

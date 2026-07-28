@@ -768,7 +768,7 @@ footer {
   transform: translateY(calc(var(--reveal-y) - 8px));
 }
 
-/* ── HAMBURGER MENU (disamakan dengan home.css & products.css) ── */
+/* ── HAMBURGER MENU ── */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -996,8 +996,21 @@ footer {
   .branch-grid {
     grid-template-columns: 1fr;
   }
+  .branch-corner {
+    width: 110px;
+    height: 110px;
+    right: 20px;
+    top: 75px;
+  }
+  .branch-logo {
+    width: 110px;
+    height: 110px;
+  }
+  .branch-card h3 {
+    padding-right: 0;
+  }
   .branch-focus {
-    margin-top: 55px;
+    margin-top: 85px;
   }
 
   /* Group structure */
@@ -1048,19 +1061,6 @@ footer {
 @media (max-width: 400px) {
   .board-bottom {
     grid-template-columns: 1fr;
-  }
-  .branch-corner {
-    width: 110px;
-    height: 110px;
-    right: 20px;
-    top: 75px;
-  }
-  .branch-logo {
-    width: 110px;
-    height: 110px;
-  }
-  .branch-focus {
-    margin-top: 85px;
   }
   .structure-image {
     padding: 5px;
