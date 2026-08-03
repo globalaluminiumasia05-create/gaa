@@ -8,48 +8,110 @@ const supabaseClient = window.supabase.createClient(
 emailjs.init('x1VcUhWFITvl6g0hi');
 
 // 2. AMBIL FORM
-const form = document.querySelector('.contact-form');
-const btn = form.querySelector('button');
+const enquiryForm = document.querySelector('.contact-form');
+const contactForm = document.querySelector('.contact-message-form');
 
-// 3. HANDLE SUBMIT
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+if (enquiryForm) {
+  const btn = enquiryForm.querySelector('button');
 
-  btn.disabled = true;
-  btn.innerText = 'Sending...';
+  enquiryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const data = {
-    full_name: form.full_name.value || '',
-    company_name: form.company_name?.value || '',
-    phone: form.phone.value || '',
-    email: form.email.value || '',
-    product: form.product?.value || '',
-    estimated_volume: form.estimated_volume?.value || '',
-    city: form.city?.value || '',
-    message: form.message.value || '',
-  };
+    btn.disabled = true;
+    btn.innerText = 'Sending...';
 
-  const { error } = await supabaseClient
-    .from('enquiries')
-    .insert([data]);
+    const data = {
+      full_name: enquiryForm.full_name.value || '',
+      company_name: enquiryForm.company_name?.value || null,
+      phone: enquiryForm.phone.value || '',
+      email: enquiryForm.email?.value || null,
+      product: enquiryForm.product?.value || null,
+      estimated_volume: enquiryForm.estimated_volume?.value || null,
+      city: enquiryForm.city?.value || null,
+      message: enquiryForm.message?.value || null,
+    };
 
-  if (error) {
-    console.error(error);
-    alert('❌ Gagal kirim: ' + error.message);
+    const { error } = await supabaseClient
+      .from('enquiries')
+      .insert([data]);
+
+    if (error) {
+      console.error(error);
+      alert('❌ Gagal kirim: ' + error.message);
+
+      btn.disabled = false;
+      btn.innerText = 'Send Enquiry →';
+      return;
+    }
+    
+    try {
+      await emailjs.send(
+        'service_zmaspzr',
+        'template_r5lxmnm',
+        data
+      );
+    } catch (emailError) {
+      console.error(emailError);
+    }
+    
+    document.getElementById('successMsg').style.display = 'block';
+    
+    enquiryForm.reset();
+    
+    btn.disabled = false;
+    btn.innerText = 'Sent ✓';
+    
+    setTimeout(() => {
+      btn.innerText = 'Send Inquiry';
+    }, 2500);
+  });
+}
+
+if (contactForm) {
+  const btn = contactForm.querySelector('button');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.innerText = 'Sending...';
+
+    const data = {
+      full_name: contactForm.full_name.value || '',
+      email: contactForm.email.value || '',
+      message: contactForm.message.value || ''
+    };
+
+    const { error } = await supabaseClient
+      .from('contact_messages')
+      .insert([data]);
+
+    if (error) {
+      console.error(error);
+      alert('❌ Gagal kirim: ' + error.message);
+
+      btn.disabled = false;
+      btn.innerText = 'Send Enquiry';
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        'service_zmaspzr',
+        'template_68odi6m',
+        data
+      );
+    } catch (emailError) {
+      console.error(emailError);
+    }
+
+    contactForm.reset();
 
     btn.disabled = false;
-    btn.innerText = 'Send Enquiry →';
-    return;
-  }
-
-  try {
-    await emailjs.send('service_zmaspzr', 'template_r5lxmnm', data);
-  } catch (emailError) {
-    console.error('Gagal kirim notifikasi email:', emailError);
-  }
-
-  document.getElementById('successMsg').style.display = 'block';
-  form.reset();
-
-  btn.innerText = 'Sent ✓';
-});
+    btn.innerText = 'Sent ✓';
+    
+    setTimeout(() => {
+      btn.innerText = 'Send Enquiry';
+    }, 2500);
+  });
+}

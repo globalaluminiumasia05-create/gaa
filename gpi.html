@@ -24,7 +24,7 @@
         "@type": "Organization",
         "name": "Global Aluminium Asia",
         "url": "https://globalaluminiumasia.com/gpi",
-        "logo": "https://globalaluminiumasia.com/img/logo.png",
+        "logo": "https://globalaluminiumasia.com/img/logo.webp",
         "description": "Indonesia's leading aluminium distribution group with 12 branch companies.",
         "telephone": "+62-778-408-4727",
         "email": "globalaluminiumasia05@gmail.com",
@@ -40,7 +40,7 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.webp" sizes="32x32">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/gpi.css">
@@ -50,7 +50,7 @@
   <body>
     <nav>
       <a href="index.html" class="nav-logo">
-        <img src="img/logo.png" alt="Global Aluminium Asia">
+        <img src="img/logo.webp" alt="Global Aluminium Asia" decoding="async">
       </a>
       
       <ul class="nav-links">
@@ -82,8 +82,8 @@
     <section id="gpi-hero" class="reveal">
       <div class="hero-bg">
         <picture>
-          <source media="(max-width: 768px)" srcset="img/mobilegpi.png">
-          <img src="img/herogpi.png" class="hero-bg">
+          <source media="(max-width: 768px)" srcset="img/mobilegpi.webp">
+          <img src="img/herogpi.webp" class="hero-bg" fetchpriority="high" decoding="async">
         </picture>
       </div>
     
@@ -97,7 +97,7 @@
         </div>
         
         <div class="hero-logo reveal">
-          <img src="img/gpi.png" alt="Global Prima Internusa">
+          <img src="img/gpi.webp" alt="Global Prima Internusa" decoding="async">
         </div>
         
         <div class="hero-content">
@@ -283,12 +283,12 @@
     
       <div class="products-layout">
         <div class="product-card">
-          <img src="img/aluminium.png" alt="Aluminium Extrusion">
+          <img src="img/aluminium.webp" alt="Aluminium Extrusion" loading="lazy" decoding="async">
           <h3>Aluminium Extrusion</h3>
         </div>
     
         <div class="product-card">
-          <img src="img/acp.png" alt="Aluminium Composite Panel">
+          <img src="img/acp.webp" alt="Aluminium Composite Panel" loading="lazy" decoding="async">
           <h3>Aluminium Composite Panel</h3>
         </div>
       </div>
@@ -322,10 +322,10 @@
           </div>
         </div>
     
-        <form class="contact-form">
-          <input type="text" placeholder="Your Name">
-          <input type="email" placeholder="Email Address">
-          <textarea placeholder="Message"></textarea>
+        <form class="contact-form contact-message-form" id="contact-form">
+          <input type="text" name="full_name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <textarea name="message" placeholder="Message" required></textarea>
           <button type="submit">
             Send Inquiry
           </button>
@@ -337,7 +337,7 @@
     <footer>
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="img/logo.png" alt="Global Aluminium Asia" class="footer-logo-img">
+          <img src="img/logo.webp" alt="Global Aluminium Asia" class="footer-logo-img" loading="lazy" decoding="async">
           
           <p class="footer-tagline">
             Building Indonesia with Premium Aluminium Solutions
@@ -362,12 +362,11 @@
         <div class="footer-col">
           <h5>Products</h5>
           <ul>
-            <li>U-Channel Profile</li>
-            <li>Door & Window Frame</li>
-            <li>Curtain Wall Mullion</li>
-            <li>H-Beam Structural</li>
-            <li>Round Tube</li>
-            <li>Louvre Profile</li>
+            <li><a href="products.html?category=aluminium">Aluminium Extrusion</a></li>
+            <li><a href="products.html?category=acp">Aluminium Composite Panel</a></li>
+            <li><a href="products.html?category=accessories">Aluminium Accessories</a></li>
+            <li><a href="products.html?category=material">Building Material</a></li>
+            <li><a href="products.html?category=steel">Stainless Steel</a></li>
           </ul>
         </div>
     
@@ -393,21 +392,6 @@
     </footer>
     
     <script>
-      function downloadAndOpenCatalog(e, url) {
-        e.preventDefault();
-    
-        // trigger the actual file download
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = url.split('/').pop();
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    
-        // also open the file in a new tab for viewing
-        window.open(url, '_blank');
-      }
-      
       const obs = new IntersectionObserver((e) => { e.forEach((el,i) => { if (el.isIntersecting) { setTimeout(() => el.target.classList.add('visible'), i*80); obs.unobserve(el.target); } }); }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     
@@ -425,5 +409,9 @@
         });
       });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

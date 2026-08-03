@@ -810,13 +810,13 @@ section {
     transition: color 0.7s ease;
 }
 .val-card.quality::before {
-    background-image: url('../img/val1.png');
+    background-image: url('../img/val1.webp');
 }
 .val-card.integrity::before {
-    background-image: url('../img/val2.png');
+    background-image: url('../img/val2.webp');
 }
 .val-card.innovation::before {
-    background-image: url('../img/val3.png');
+    background-image: url('../img/val3.webp');
 }
 
 /* ── COMPANY VIDEO ── */

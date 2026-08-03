@@ -356,7 +356,7 @@ section {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../img/map.png");
+    background-image: url("../img/map.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -802,10 +802,12 @@ section {
 }
 .swiper-button-prev::after,
 .swiper-button-next::after {
+    color: var(--off-white);
     font-size: 35px;
     font-weight: 900;
 }
-.swiper-button-next:hover {
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
     color: var(--red);
 }
 

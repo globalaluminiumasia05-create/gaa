@@ -24,7 +24,7 @@
         "@type": "Organization",
         "name": "Global Aluminium Asia",
         "url": "https://globalaluminiumasia.com/product-detail",
-        "logo": "https://globalaluminiumasia.com/img/logo.png",
+        "logo": "https://globalaluminiumasia.com/img/logo.webp",
         "description": "Indonesia's leading aluminium distribution group with 12 branch companies.",
         "telephone": "+62-778-408-4727",
         "email": "globalaluminiumasia05@gmail.com",
@@ -40,7 +40,7 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.webp" sizes="32x32">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/product-detail.css">
@@ -51,7 +51,7 @@
   <body>
     <nav id="main-nav">
       <a href="index.html" class="nav-logo">
-        <img src="img/logo.png" alt="Global Aluminium Asia">
+        <img src="img/logo.webp" alt="Global Aluminium Asia" decoding="async">
       </a>
     
       <ul class="nav-links">
@@ -133,7 +133,7 @@
     <footer>
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="img/logo.png" alt="Global Aluminium Asia" class="footer-logo-img">
+          <img src="img/logo.webp" alt="Global Aluminium Asia" class="footer-logo-img" loading="lazy" decoding="async">
           <p class="footer-tagline">
             Building Indonesia with Premium Aluminium Solutions
           </p>
@@ -158,12 +158,11 @@
         <div class="footer-col">
           <h5>Products</h5>
           <ul>
-            <li>U-Channel Profile</li>
-            <li>Door & Window Frame</li>
-            <li>Curtain Wall Mullion</li>
-            <li>H-Beam Structural</li>
-            <li>Round Tube</li>
-            <li>Louvre Profile</li>
+            <li><a href="products.html?category=aluminium">Aluminium Extrusion</a></li>
+            <li><a href="products.html?category=acp">Aluminium Composite Panel</a></li>
+            <li><a href="products.html?category=accessories">Aluminium Accessories</a></li>
+            <li><a href="products.html?category=material">Building Material</a></li>
+            <li><a href="products.html?category=steel">Stainless Steel</a></li>
           </ul>
         </div>
     
@@ -1409,6 +1408,53 @@
               ]
             }
           }
+        },
+        
+        furniture: {
+          label: 'Furniture',
+          desc: 'Sliding-door wardrobes and storage cabinets with a range of decorative panel finishes.',
+          subCats: {
+            wardrobe2d: {
+              label: 'Sliding Wardrobe | 2-Door',
+              desc: 'Two-door sliding wardrobes combining a decorative panel with a full-length mirror door.',
+              items: [
+                {name:'GT-002-C',   desc:'Sliding wardrobe with a grey-gold marble panel and mirror door.',                                          img:'catalog/gt002c_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Marble Finish']},
+                {name:'GT-002-C-1', desc:'Sliding wardrobe with a dark geometric mosaic panel and mirror door.',                                     img:'catalog/gt002c1_1', brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Mosaic Pattern']},
+                {name:'GT-002-D',   desc:'Sliding wardrobe with a white-gold marble panel and mirror door.',                                         img:'catalog/gt002d_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Marble Finish']},
+                {name:'GT-002-E',   desc:'Sliding wardrobe with a white marble panel featuring gold geometric line accents, and a mirror door.',     img:'catalog/gt002e_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Geometric Accent']},
+                {name:'GT-002-F',   desc:'Sliding wardrobe with an abstract orange-purple wave panel and mirror door.',                              img:'catalog/gt002f_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Abstract Pattern']},
+                {name:'GT-002-G',   desc:'Sliding wardrobe with a pink-gold abstract marble panel and mirror door.',                                 img:'catalog/gt002g_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Abstract Pattern']},
+                {name:'GT-002-H',   desc:'Sliding wardrobe with a grey-gold diamond pattern panel and mirror door.',                                 img:'catalog/gt002h_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Diamond Pattern']},
+                {name:'GT-003-C',   desc:'Sliding wardrobe with a cream marble panel and mirror door.',                                              img:'catalog/gt003c_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Marble Finish']},
+                {name:'GT-003-F',   desc:'Sliding wardrobe with a marble panel and mirror door, fitted with an internal hanging rail and shelving.', img:'catalog/gt003f_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Internal Shelving']},
+                {name:'GT-003-G',   desc:'Sliding wardrobe with a white marble panel featuring a gold chevron pattern, and a mirror door.',          img:'catalog/gt003g_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Chevron Pattern']},
+                {name:'GT-003-H',   desc:'Sliding wardrobe with a brown-gold abstract smoke marble panel and mirror door.',                          img:'catalog/gt003h_1',  brand:'brandglatino', specs:['2-Door Sliding','Mirror Panel','Abstract Pattern']}
+              ]
+            },
+            wardrobe3d: {
+              label: 'Sliding Wardrobe | 3-Door',
+              desc: 'Three-door sliding wardrobes with a central mirror door flanked by decorative panels.',
+              items: [
+                {name:'GT-301-B', desc:'Three-door sliding wardrobe with blue-gold marble panels, a central mirror door, and internal shelving.', img:'catalog/gt301b_1', brand:'brandglatino', specs:['3-Door Sliding','Mirror Panel','Internal Shelving']},
+                {name:'GT-301-C', desc:'Three-door sliding wardrobe with blue-grey floral panels and a central mirror door.',                     img:'catalog/gt301c_1', brand:'brandglatino', specs:['3-Door Sliding','Mirror Panel','Floral Pattern']}
+              ]
+            },
+            tallcabinet: {
+              label: 'Tall Cabinet',
+              desc: 'Slim, tall storage cabinets suited for compact spaces.',
+              items: [
+                {name:'GT-401-D', desc:'Tall storage cabinet with a white marble panel featuring gold geometric line accents.', img:'catalog/gt401d_1', brand:'brandglatino', specs:['2-Door','Slim Profile','Geometric Accent']},
+                {name:'GT-401-F', desc:'Tall storage cabinet with a blue-gold abstract marble panel.',                          img:'catalog/gt401f_1', brand:'brandglatino', specs:['2-Door','Slim Profile','Abstract Pattern']}
+              ]
+            },
+            wallunit: {
+              label: 'Wall Unit',
+              desc: 'Wall-mounted storage units combining open shelving with a mirrored cabinet.',
+              items: [
+                {name:'GT-501', desc:'Wall-mounted unit with open shelving above a marble-panel cabinet with a mirror door.', img:'catalog/gt501_1', brand:'brandglatino', specs:['Open Shelving','Mirror Panel','Wall-Mounted']}
+              ]
+            }
+          }
         }
       };
       
@@ -1525,8 +1571,13 @@
       
           // Builds a single <img> (or placeholder) for a given image filename
           const buildImgContent = (imgName) => imgName
-            ? `<img src="img/${imgName}.png" alt="${item.name}"
-                onerror="this.parentElement.innerHTML='<div class=\\'img-placeholder\\'><i class=\\'fa-solid fa-image\\'></i></div>'">`
+            ? `<img
+                src="img/${imgName}.webp"
+                alt="${item.name}"
+                loading="lazy"
+                decoding="async"
+                onerror="this.parentElement.innerHTML='<div class=\\'img-placeholder\\'><i class=\\'fa-solid fa-image\\'></i></div>'"
+              >`
             : `<div class="img-placeholder"><i class="fa-solid fa-image"></i></div>`;
       
           // item.img can be a single filename (same picture everywhere) or an
@@ -1552,9 +1603,13 @@
                       <div class="prod-carousel-slide">
                         <div class="prod-img-wrap${activeCat === 'acp' ? ' acp-cover' : ''}">
                           <div class="prod-brand-wrap">
-                            <img src="img/${brand}.png"
+                            <img
+                              src="img/${brand}.webp"
                               class="prod-brand ${brand === 'brandglatino' ? 'brand-glatino' : ''}"
-                              alt="${brand}">
+                              alt="${brand}"
+                              loading="lazy"
+                              decoding="async"
+                            >
                           </div>
                           
                           ${buildImgContent(imgList[slideIdx] || imgList[0])}
@@ -1614,9 +1669,14 @@
                 ${brands.length ? `
                 <div class="prod-brand-wrap">
                   ${brands.map(brand => `
-                  <img src="img/${brand}.png"
-                  class="prod-brand ${brand === 'brandglatino' ? 'brand-glatino' : ''}"
-                  alt="${brand}">`).join('')}
+                  <img
+                    src="img/${brand}.webp"
+                    class="prod-brand ${brand === 'brandglatino' ? 'brand-glatino' : ''}"
+                    alt="${brand}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  `).join('')}
                 </div>
                 ` : ''}
       
@@ -1672,10 +1732,6 @@
     
           if (total < 2) return;
     
-          // Pad the track with a clone of the last slide before the first,
-          // and a clone of the first slide after the last — this is what
-          // lets "next" always animate right and "prev" always animate left,
-          // even when wrapping around with only 2 real slides.
           const headClone = realSlides[total - 1].cloneNode(true);
           const tailClone = realSlides[0].cloneNode(true);
           headClone.setAttribute('aria-hidden', 'true');

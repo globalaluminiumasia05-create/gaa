@@ -224,7 +224,7 @@ section {
             rgba(248,248,248,.2) 70%,
             transparent 100%
         ),
-        url('../img/office.png');
+        url('../img/office.webp');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

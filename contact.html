@@ -24,7 +24,7 @@
         "@type": "Organization",
         "name": "Global Aluminium Asia",
         "url": "https://globalaluminiumasia.com/contact",
-        "logo": "https://globalaluminiumasia.com/img/logo.png",
+        "logo": "https://globalaluminiumasia.com/img/logo.webp",
         "description": "Indonesia's leading aluminium distribution group with 12 branch companies.",
         "telephone": "+62-778-408-4727",
         "email": "globalaluminiumasia05@gmail.com",
@@ -40,7 +40,7 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.webp" sizes="32x32">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/contact.css">
@@ -50,7 +50,7 @@
   <body>
     <nav>
       <a href="index.html" class="nav-logo">
-        <img src="img/logo.png" alt="Global Aluminium Asia">
+        <img src="img/logo.webp" alt="Global Aluminium Asia" decoding="async">
       </a>
       
       <ul class="nav-links">
@@ -80,7 +80,6 @@
     </nav>
     
     <div class="page-hero">
-      <div class="page-hero-accent"></div>
       <div class="section-tag reveal">Get in Touch</div>
       <h1 class="reveal">CONTACT <span>&</span> <br>ENQUIRIES</h1>
       <p class="reveal">Our sales and technical team are available 6 days a week. We respond to all enquiries<br> within 2 business hours.</p>
@@ -96,10 +95,45 @@
         <div>
           <div class="contact-block-title">Head Office — Jakarta</div>
           <div class="contact-details">
-            <div class="contact-item"><div class="contact-dot"></div><div class="contact-item-text"><label>Address</label><p>Union Industrial Park, Block D No. 5/6,<br>Batu Ampar, Batam 29444, Riau Islands, Indonesia</p></div></div>
-            <div class="contact-item"><div class="contact-dot"></div><div class="contact-item-text"><label>Office Phone</label><p><a href="tel:07784084727">0778 408 4727</a></p></div></div>
-            <div class="contact-item"><div class="contact-dot"></div><div class="contact-item-text"><label>Email</label><p><a href="mailto:sales@globalaluminiumasia.co.id">globalaluminiumasia05@gmail.com</a></p></div></div>
-            <div class="contact-item"><div class="contact-dot"></div><div class="contact-item-text"><label>Operating Hours</label><p>Monday – Friday: 08:00 – 17:00 WIB<br>Saturday: 08:00 – 16:00 WIB</p></div></div>
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <div class="contact-item-text">
+                <label>Address</label>
+                <p>
+                  Union Industrial Park, Block D No. 5/6,<br>Batu Ampar, Batam 29444, Riau Islands, Indonesia
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <div class="contact-item-text">
+                <label>Office Phone</label>
+                <p>
+                  <a href="tel:07784084727">0778 408 4727</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <div class="contact-item-text">
+                <label>Email</label>
+                <p>
+                  <a href="mailto:sales@globalaluminiumasia.co.id">globalaluminiumasia05@gmail.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <div class="contact-item-text">
+                <label>Operating Hours</label>
+                <p>
+                  Monday – Friday: 08:00 – 17:00 WIB<br>Saturday: 08:00 – 16:00 WIB
+                </p>
+              </div>
+            </div>
           </div>
         </div>
     
@@ -140,31 +174,31 @@
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name *</label>
-              <input type="text" id="name" name="full_name" placeholder="Your name" required />
+              <input type="text" id="name" name="full_name" placeholder="Your name" required>
             </div>
             
             <div class="form-group">
               <label for="company">Company Name</label>
-              <input type="text" id="company" name="company_name" placeholder="PT / CV / Company" required />
+              <input type="text" id="company" name="company_name" placeholder="PT / CV / Company">
             </div>
           </div>
     
           <div class="form-row">
             <div class="form-group">
               <label for="phone">WhatsApp / Phone *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+62 ..." required />
+              <input type="tel" id="phone" name="phone" placeholder="+62 ..." required>
             </div>
             
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              <input type="email" id="email" name="email" placeholder="you@company.com">
             </div>
           </div>
     
           <div class="form-row">
             <div class="form-group select">
               <label for="product">Product of Interest</label>
-              <select id="product" name="product" required>
+              <select id="product" name="product">
                 <option value="" selected disabled>— Select Product —</option>
                 <option value="u-channel">U-Channel Profile</option>
                 <option value="t-slot">T-Slot Profile</option>
@@ -181,7 +215,7 @@
     
             <div class="form-group select">
               <label for="volume">Estimated Volume</label>
-              <select id="volume" name="estimated_volume" required>
+              <select id="volume" name="estimated_volume">
                 <option value="" selected disabled>— Select Volume —</option>
                 <option value="1-10">1–10 lengths</option>
                 <option value="11-50">11–50 lengths</option>
@@ -193,16 +227,16 @@
     
           <div class="form-group">
             <label for="city">Delivery City / Province</label>
-            <input type="text" id="city" name="city" placeholder="e.g. Surabaya, Medan, Makassar..." required />
+            <input type="text" id="city" name="city" placeholder="e.g. Surabaya, Medan, Makassar...">
           </div>
           
           <div class="form-group">
             <label for="message">Message / Technical Specification</label>
-            <textarea id="message" name="message" rows="5" placeholder="Describe your requirements: dimensions, alloy grade, finish, project timeline, etc." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Describe your requirements: dimensions, alloy grade, finish, project timeline, etc."></textarea>
           </div>
           
           <p class="form-note">
-            *Required fields. Your information is kept private and secure.
+            *Your information is kept private and secure.
           </p>
           
           <button type="submit" class="form-submit">Send Enquiry →</button>
@@ -273,7 +307,7 @@
     <footer>
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="img/logo.png" alt="Global Aluminium Asia" class="footer-logo-img">
+          <img src="img/logo.webp" alt="Global Aluminium Asia" class="footer-logo-img" loading="lazy" decoding="async">
           
           <p class="footer-tagline">
             Building Indonesia with Premium Aluminium Solutions
