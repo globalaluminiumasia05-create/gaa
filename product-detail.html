@@ -111,8 +111,23 @@
             </div>
             
             <div class="sort-row">
-              <span class="result-count"><span id="count-display">0</span> Products</span>
+              <div class="product-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="text"
+                  id="product-search"
+                  placeholder="Search products..."
+                  autocomplete="off"
+                >
+                <div class="search-results" id="search-results"></div>
+              </div>
+              
+              <span class="result-count">
+                <span id="count-display">0</span> Products
+              </span>
+              
               <span class="sort-label">Sort</span>
+              
               <select class="sort-select" id="sort-select">
                 <option value="default">Default</option>
                 <option value="az">A – Z</option>
@@ -269,15 +284,15 @@
                 {name:'Wardrobe Handle',       desc:'Integrated handle profile for convenient opening and closing.',      img:'aluminium/sdw6', brand:'globaluminium', specs:['6.00 m']}
               ]
             },
-            convoyer: {
-              label:'Convoyer',
+            conveyor: {
+              label:'Conveyor',
               desc:'Modular aluminium profile system suitable for conveyor structures and industrial framing applications.',
               items: [
-                {name:'Convoyer 20 x 20 MM | NA',         desc:'Aluminium profile designed for lightweight frame and conveyor system applications.', img:'aluminium/cv1', brand:'globaluminium', specs:['6.00 m']},
-                {name:'Convoyer 30 x 30 MM | NA',         desc:'Aluminium profile providing reliable support for modular frame structures.',         img:'aluminium/cv2', brand:'globaluminium', specs:['6.00 m']},
-                {name:'Convoyer 30 x 30 MM | NA | Tipis', desc:'Lightweight aluminium profile for efficient and economical frame assemblies.',       img:'aluminium/cv3', brand:'globaluminium', specs:['6.00 m']},
-                {name:'Convoyer 40 x 40 MM | NA',         desc:'Heavy-duty aluminium profile designed for enhanced structural strength.',            img:'aluminium/cv4', brand:'globaluminium', specs:['6.00 m']},
-                {name:'Convoyer 40 x 40 MM | NA | Tipis', desc:'Slim aluminium profile offering a balance of strength and weight efficiency.',       img:'aluminium/cv5', brand:'globaluminium', specs:['6.00 m']}
+                {name:'Conveyor 20 x 20 MM | NA',         desc:'Aluminium profile designed for lightweight frame and conveyor system applications.', img:'aluminium/cv1', brand:'globaluminium', specs:['6.00 m']},
+                {name:'Conveyor 30 x 30 MM | NA',         desc:'Aluminium profile providing reliable support for modular frame structures.',         img:'aluminium/cv2', brand:'globaluminium', specs:['6.00 m']},
+                {name:'Conveyor 30 x 30 MM | NA | Tipis', desc:'Lightweight aluminium profile for efficient and economical frame assemblies.',       img:'aluminium/cv3', brand:'globaluminium', specs:['6.00 m']},
+                {name:'Conveyor 40 x 40 MM | NA',         desc:'Heavy-duty aluminium profile designed for enhanced structural strength.',            img:'aluminium/cv4', brand:'globaluminium', specs:['6.00 m']},
+                {name:'Conveyor 40 x 40 MM | NA | Tipis', desc:'Slim aluminium profile offering a balance of strength and weight efficiency.',       img:'aluminium/cv5', brand:'globaluminium', specs:['6.00 m']}
               ]
             },
             slddoortrack: {
@@ -354,7 +369,7 @@
                 {name:'Casement Double Glass | Tipis',      desc:'Slim profile designed to accommodate double-glass window panels.',        img:'aluminium/cwt4', brand:'globaluminium', specs:['6.00 m']}
               ]
             },
-            conveyor: {
+            csmwindowtebal: {
               label:'Casement Window | Tebal',
               desc:'Heavy-duty casement window system designed for enhanced strength and durability.',
               items: [
@@ -1205,13 +1220,13 @@
               label: 'Accessories for Conveyor',
               desc: ' Aluminium profile system and matching hardware for building conveyor and equipment frames.',
               items: [
-                {name:'Handle Convoyer', desc:'Aluminium grip handle for conveyor profile frames.',                     img:'catalog/handleconvoyer30', brand:'brandglatino', specs:['Grip Handle','Aluminium']},
+                {name:'Handle Conveyor', desc:'Aluminium grip handle for conveyor profile frames.',                     img:'catalog/handleconvoyer30', brand:'brandglatino', specs:['Grip Handle','Aluminium']},
                 {name:'Conveyor | NA',   desc:'T-slot aluminium extrusion profile for conveyor and frame assembly.',    img:'catalog/conveyor_30',       brand:'brandglatino', specs:['T-Slot Profile','Aluminium']},
                 {name:'Gusset Element',  desc:'Corner mounting bracket for joining conveyor profiles at right angles.', img:'catalog/gusset20',         brand:'brandglatino', specs:['Corner Bracket','Aluminium']},
                 {name:'End Cap',         desc:'Plastic end cap for finishing exposed conveyor profile ends.',           img:'catalog/endcap20',         brand:'brandglatino', specs:['Plastic','End Cap']},
-                {name:'Convoyer Hinge',  desc:'Hinge bracket for conveyor profile frame doors or panels.',              img:'catalog/convoyerhinge30',  brand:'brandglatino', specs:['Hinge','Aluminium']},
+                {name:'Conveyor Hinge',  desc:'Hinge bracket for conveyor profile frame doors or panels.',              img:'catalog/convoyerhinge30',  brand:'brandglatino', specs:['Hinge','Aluminium']},
                 {name:'Cover Strip',     desc:'Slot cover strip for concealing T-slot channels on conveyor profiles.',  img:'catalog/coverstrip',       brand:'brandglatino', specs:['CoverStrip','2.00 m']},
-                {name:'Baut Convoyer',   desc:'Fastener sets for assembling conveyor profile frames.',                  img:'catalog/bautconvoyer',     brand:'brandglatino', specs:['Screw','Aluminium']}
+                {name:'Baut Conveyor',   desc:'Fastener sets for assembling conveyor profile frames.',                  img:'catalog/bautconvoyer',     brand:'brandglatino', specs:['Screw','Aluminium']}
               ]
             },
             pvcacy: {
@@ -1485,7 +1500,25 @@
           }
         }
       };
+
+      // ── ALL SUB-CATEGORIES FOR SEARCH
+      const allSubCats = [];
       
+      Object.entries(CATALOGUE).forEach(([catKey, catData]) => {
+        
+        Object.entries(catData.subCats).forEach(([subKey, subData]) => {
+          
+          allSubCats.push({
+            cat: catKey,
+            sub: subKey,
+            catLabel: catData.label,
+            subLabel: subData.label,
+            desc: subData.desc,
+            items: subData.items
+          });
+        });
+      });
+
       // ── STATE
       let activeCat = 'aluminium';
       let activeSub = '';
@@ -1843,6 +1876,60 @@
         });
       }
       
+      // ── SEARCH
+      const searchInput = document.getElementById('product-search');
+      const searchResults = document.getElementById('search-results');
+      
+      searchInput.addEventListener('input', function () {
+        
+        const keyword = this.value.toLowerCase().trim();
+        
+        // Kosong → hide results
+        if (!keyword) {
+          searchResults.innerHTML = '';
+          searchResults.classList.remove('show');
+          return;
+        }
+        
+        // Cari berdasarkan NAMA SUBCATEGORY saja
+        const results = allSubCats.filter(subCat => {
+          const subName = subCat.subLabel?.toLowerCase() || '';
+          
+          return subName.includes(keyword);
+        });
+        
+        // Tidak ada hasil
+        if (!results.length) {
+          searchResults.innerHTML = `
+            <div class="search-empty">
+              No matching categories found.
+            </div>
+          `;
+          
+          searchResults.classList.add('show');
+          return;
+        }
+      
+        // Tampilkan hasil
+        searchResults.innerHTML = results.map(subCat => `
+        <a href="product-detail.html?cat=${encodeURIComponent(subCat.cat)}&sub=${encodeURIComponent(subCat.sub)}" class="search-result-item">     
+          <div class="search-result-info">
+            <div class="search-result-name">
+              ${subCat.subLabel}
+            </div>
+            
+            <div class="search-result-category">
+              ${subCat.catLabel} · ${subCat.items.length} Products
+            </div>
+          </div>
+        
+          <i class="fa-solid fa-chevron-right search-result-arrow"></i>
+        </a>
+        `).join('');
+      
+        searchResults.classList.add('show');
+      });
+
       // ── SORT
       document.getElementById('sort-select').addEventListener('change', function () {
         const items = [...CATALOGUE[activeCat].subCats[activeSub].items];
@@ -1870,7 +1957,6 @@
       
       } else {
         selectBigCat('aluminium');
-      
       }
     </script>
   </body>
