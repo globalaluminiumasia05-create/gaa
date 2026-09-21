@@ -366,13 +366,13 @@ section {
 .ns-left {
     padding-top: 173px;
 }
-.ns-left h1 {
+.ns-left h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
     letter-spacing: 3px;
     line-height: 1;
 }
-.ns-left h1 span {
+.ns-left h2 span {
     color: var(--red);
 }
 .ns-left p {
@@ -1234,7 +1234,7 @@ footer {
         padding-top: 0;
         text-align: center;
     }
-    .ns-left h1 {
+    .ns-left h2 {
         font-size: 2.4rem;
     }
     .honeycomb {

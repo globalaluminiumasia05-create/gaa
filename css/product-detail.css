@@ -511,6 +511,31 @@ nav {
 .search-results.show {
     display: block;
 }
+.search-result-badge {
+    flex-shrink: 0;
+    padding: 4px 7px;
+    border: 1px solid rgba(255,255,255,.12);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .search-result-badge.subcategory {
+      color: var(--grey-light);
+      background: rgba(255,255,255,.04);
+  }
+  .search-result-badge.product {
+      color: var(--red);
+      background: rgba(170,41,46,.08);
+      border-color: rgba(170,41,46,.25);
+  }
+  .search-empty {
+    padding: 18px 20px;
+    text-align: center;
+    color: #b8b1a8;
+    font-size: 13px;
+    line-height: 1.5;
+  }
 
 /* SEARCH SCROLLBAR */
 .search-results::-webkit-scrollbar {
