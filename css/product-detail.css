@@ -42,8 +42,8 @@ nav {
   background: rgba(20,20,22,0.96);
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(170,40,45,0.2);
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
   padding: 15px 120px;
   position: fixed;
   top: 0;
@@ -68,7 +68,12 @@ nav {
 .nav-links {
   display: flex;
   gap: 35px;
+  left: 50%;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  transform: translateX(-50%);
 }
 .nav-links a {
   color: var(--silver);
@@ -126,6 +131,42 @@ nav {
   background: var(--red-light);
   transform: translateY(-1px);
 }
+.nav-right {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  margin-left: auto;
+}
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.language-switcher button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #555;
+  background: #242427;
+  color: #888;
+  padding: 5px 7px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .5px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.language-switcher button:hover {
+  color: #fff;
+  border-color: #aa292e;
+}
+.language-switcher button.active {
+  color: #fff;
+  background: #aa292e;
+  border-color: #aa292e;
+}
 
 /* ── HAMBURGER MENU ── */
 .nav-hamburger {
@@ -175,7 +216,7 @@ nav {
   z-index: 150;
 }
 .mobile-menu.open {
-  max-height: 420px;
+  max-height: 500px;
   opacity: 1;
   padding: 6px 20px 16px;
 }
@@ -206,6 +247,37 @@ nav {
   padding: 13px 24px;
   text-align: center;
   text-decoration: none;
+}
+.mobile-language-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 16px;
+}
+.mobile-language-switcher button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #555;
+  background: #242427;
+  color: #888;
+  padding: 6px 9px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .5px;
+  cursor: pointer;
+}
+.mobile-language-switcher button:hover {
+  color: #fff;
+  border-color: var(--red);
+}
+.mobile-language-switcher button.active {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
 }
 
 /* PAGE LAYOUT */
@@ -1249,11 +1321,15 @@ footer {
   .nav-links {
     display: none;
   }
+  .nav-right {
+    display: none;
+  }
   .nav-cta {
     display: none;
   }
   .nav-hamburger {
     display: flex;
+    margin-left: auto;
   }
   
   /* Search Bar */

@@ -10,6 +10,10 @@
     <meta name="description" content="Tritama Konstruksindo Mandiri supplies quality aluminium materials for construction, fabrication, and architectural projects in Batam. Delivering durable products, reliable service, and timely project support across various industries.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://globalaluminiumasia.com/tkm">
+
+    <link rel="alternate" hreflang="en" href="https://globalaluminiumasia.com/tkm">
+    <link rel="alternate" hreflang="id" href="https://globalaluminiumasia.com/id/tkm">
+    <link rel="alternate" hreflang="x-default" href="https://globalaluminiumasia.com/tkm">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -40,7 +44,7 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/favicon.webp" sizes="32x32">
+    <link rel="icon" href="img/favicon.webp" sizes="32x32">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/tkm.css">
@@ -60,9 +64,16 @@
         <li><a href="network.html" class="active">Our Network</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
+      <div class="nav-right">
+        <div class="language-switcher">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="id">ID</button>
+        </div>
+        
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
       
-      <a href="contact.html" class="nav-cta">Get a Quote</a>
-    
       <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -76,14 +87,19 @@
         <a href="network.html" class="active">Our Network</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html" class="mobile-cta">Get a Quote</a>
+
+        <div class="mobile-language-switcher">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="id">ID</button>
+        </div>
       </div>
     </nav>
     
     <section id="tkm-hero" class="reveal">
       <div class="hero-bg">
         <picture>
-          <source media="(max-width: 768px)" srcset="img/mobile_tkm.webp">
-          <img src="img/hero_tkm.webp" class="hero-bg" fetchpriority="high" decoding="async">
+          <source media="(max-width: 768px)" srcset="img/mobile_tkm.webp" alt="Tritama Konstruksindo Mandiri">
+          <img src="img/hero_tkm.webp" alt="Tritama Konstruksindo Mandiri" class="hero-bg" fetchpriority="high" decoding="async">
         </picture>
       </div>
     
@@ -178,7 +194,6 @@
       </div>
     </section>
     
-    <!-- VISION MISSION -->
     <section id="vision-mission">
       <div class="vm-header">
         <div class="section-tag reveal">Our Direction</div>
@@ -220,7 +235,6 @@
       </div>
     </section>
     
-    <!-- GOALS -->
     <section id="goals">
       <div class="section-tag reveal">Our Commitment</div>
       <h2 class="section-h2 reveal">
@@ -274,7 +288,6 @@
       </div>
     </section>
     
-    <!-- PRODUCTS -->
     <section id="products">
       <div class="section-tag">Our Products</div>
       <h2 class="section-h2">
@@ -289,7 +302,6 @@
       </div>
     </section>
     
-    <!-- CONTACT -->
     <section id="contact">
       <div class="section-tag">Get In Touch</div>
       <h2 class="section-h2">
@@ -301,8 +313,8 @@
           <div class="contact-item">
             <h4>Address</h4>
             <p>
-              Block B3 No. 1, Indah Industrial Park, Kampung Pelita,<br>
-              Batam, Riau Islands, Indonesia  
+              Indah Industrial Park, Block B3 No. 1, Kampung Pelita,<br>
+              Batam, Riau Islands, Indonesia
             </p>
           </div>
      
@@ -323,15 +335,14 @@
       </div>
     </section>
     
-    <!-- FOOTER -->
     <footer>
       <div class="footer-top">
         <div class="footer-brand">
           <img src="img/logo.webp" alt="Global Aluminium Asia" class="footer-logo-img" loading="lazy" decoding="async">
-          
           <p class="footer-tagline">
             Building Indonesia with Premium Aluminium Solutions
           </p>
+
           <div class="footer-address">
             <i class="fa-solid fa-location-dot"></i>
             <p>Union Industrial Park, Block D No. 5-6, Batu Ampar, Batam 29444, Riau Islands, Indonesia</p>
@@ -342,7 +353,7 @@
           <h5>Navigation</h5>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="network.html">Our Network</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -352,12 +363,13 @@
         <div class="footer-col">
           <h5>Products</h5>
           <ul>
-          <li><a href="products.html?category=aluminium">Aluminium Extrusion</a></li>
+            <li><a href="products.html?category=aluminium">Aluminium Extrusion</a></li>
             <li><a href="products.html?category=acp">Aluminium Composite Panel</a></li>
             <li><a href="products.html?category=accessories">Accessories</a></li>
             <li><a href="products.html?category=material">Building Material</a></li>
             <li><a href="products.html?category=steel">Stainless Steel</a></li>
             <li><a href="products.html?category=furniture">Furniture</a></li>
+          </ul>
         </div>
     
         <div class="footer-col">
@@ -399,6 +411,53 @@
           mobileMenu.classList.remove('open');
         });
       });
+
+      // ── LANGUAGE SWITCHER
+      const langButtons = document.querySelectorAll('[data-lang]');
+      
+      if (langButtons.length) {
+        const currentPath = window.location.pathname;
+        const isIndonesian = currentPath.startsWith('/id/');
+        
+        langButtons.forEach(button => {
+          const lang = button.dataset.lang;
+          
+          // Tandai bahasa yang sedang aktif
+          if (
+            (lang === 'id' && isIndonesian) ||
+            (lang === 'en' && !isIndonesian)
+          ) {
+            button.classList.add('active');
+          }
+          
+          button.addEventListener('click', () => {
+            const query = window.location.search;
+            const hash = window.location.hash;
+            
+            if (lang === 'id' && !isIndonesian) {
+              // English → Indonesia
+              let page = currentPath.replace(/^\//, '');
+              
+              if (page === '' || page === 'index.html') {
+                page = 'index.html';
+              }
+              
+              window.location.href = `/id/${page}${query}${hash}`;
+            }
+            
+            if (lang === 'en' && isIndonesian) {
+              // Indonesia → English
+              let page = currentPath.replace(/^\/id\//, '');
+              
+              if (page === '' || page === 'index.html') {
+                window.location.href = `/${query}${hash}`;
+              } else {
+                window.location.href = `/${page}${query}${hash}`;
+              }
+            }
+          });
+        });
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
