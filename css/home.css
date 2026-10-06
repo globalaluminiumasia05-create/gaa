@@ -973,7 +973,7 @@ section {
 .why-grid {
     display: grid;
     gap: 2px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 48px;
 }
 .why-card {
@@ -1285,7 +1285,7 @@ footer {
         padding: 80px 48px;
     }
     .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     #home-why-us {
         padding: 80px 48px;
