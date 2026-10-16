@@ -536,22 +536,24 @@ section {
     margin-top: 8px;
 }
 .honeycomb {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: 10px;
+    row-gap: 0;
     justify-content: center;
     list-style: none;
     margin: 25px auto 55px;
-    max-width: 1200px;
+    max-width: 1400px;
     padding: 0;
     padding-bottom: 35px;
     padding-right: 22px;
 }
 .honeycomb-cell {
-    flex: 0 0 calc(15% - 5px);
-    height: 100px;
-    isolation: isolate;
+    width: 100%;
+    height: 115px;
+    min-width: 0;
     margin: 70px 10px 0;
-    max-width: calc(15% - 5px);
+    isolation: isolate;
     overflow: visible;
     position: relative;
 }
@@ -692,13 +694,14 @@ section {
     padding: 5px 10px;
     white-space: nowrap;
 }
-.honeycomb-cell:nth-child(12n + 7),
-.honeycomb-cell:nth-child(12n + 8),
-.honeycomb-cell:nth-child(12n + 9),
-.honeycomb-cell:nth-child(12n + 10),
-.honeycomb-cell:nth-child(12n + 11),
-.honeycomb-cell:nth-child(12n + 12) {
-    transform: translateX(56%);
+.honeycomb-cell:nth-child(-n + 7) {
+    grid-row: 1;
+    transform: none;
+}
+.honeycomb-cell:nth-child(n + 8) {
+    grid-row: 2;
+    margin-top: 100px;
+    transform: translateX(53%) translateY(-25%);
 }
 
 /* ── ABOUT SNIPPET ── */
@@ -1264,18 +1267,6 @@ footer {
     .ns-left .btn {
         margin: 0 auto;
     }
-    .honeycomb-cell {
-        flex: 0 0 calc(22% - 5px);
-        max-width: calc(22% - 5px);
-    }
-    .honeycomb-cell:nth-child(12n + 7),
-    .honeycomb-cell:nth-child(12n + 8),
-    .honeycomb-cell:nth-child(12n + 9),
-    .honeycomb-cell:nth-child(12n + 10),
-    .honeycomb-cell:nth-child(12n + 11),
-    .honeycomb-cell:nth-child(12n + 12) {
-        transform: translateX(50%);
-    }
     #home-about {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -1381,7 +1372,7 @@ footer {
         padding: 60px 20px;
     }
 
-    /* Branches — ganti honeycomb jadi grid card biasa di mobile */
+    /* Branches — layout card ada di blok "BRANCH CARDS" di bawah */
     #home-branch {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1395,71 +1386,6 @@ footer {
     .ns-left h2 {
         font-size: 2.4rem;
     }
-    .honeycomb {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-    }
-    .honeycomb-cell {
-        flex: unset;
-        max-width: 100%;
-        height: 90px;
-        margin: 0;
-        clip-path: none;
-        border-radius: 8px;
-        overflow: hidden;
-        background: var(--grey-mid);
-    }
-    /* Reset hexagon pseudo-elements di mobile */
-    .honeycomb-cell::before,
-    .honeycomb-cell::after {
-        clip-path: none;
-        border-radius: 8px;
-        height: 100%;
-        top: 0;
-    }
-    .honeycomb-cell_img {
-        clip-path: none;
-        border-radius: 8px;
-        height: 100%;
-        top: 0;
-        filter: none;
-    }
-    /* Hapus overlay abu-abu tipis di belakang logo — nutupin foto background */
-    .honeycomb-cell::after {
-        display: none;
-    }
-    /* Nonaktifkan efek hover (tap) di mobile — logo & foto tetap konsisten */
-    .honeycomb-cell:hover .honeycomb-cell_img {
-        filter: grayscale(40%) brightness(0.6);
-        transform: none;
-    }
-    .honeycomb-cell:hover .branch-logo {
-        opacity: 1;
-        transform: translateY(2px);
-    }
-    /* Offset baris kedua hexagon — nonaktifkan di mobile */
-    .honeycomb-cell:nth-child(12n + 7),
-    .honeycomb-cell:nth-child(12n + 8),
-    .honeycomb-cell:nth-child(12n + 9),
-    .honeycomb-cell:nth-child(12n + 10),
-    .honeycomb-cell:nth-child(12n + 11),
-    .honeycomb-cell:nth-child(12n + 12) {
-        transform: none;
-    }
-    /* Mobile: tampilkan logo cabang aja, sembunyikan nama & lokasi */
-    .honeycomb-cell_info {
-        display: none;
-    }
-    .branch-logo {
-        opacity: 1;
-        height: 34px;
-        position: relative;
-    }
-
     /* About */
     #home-about {
         grid-template-columns: 1fr;
@@ -1557,11 +1483,135 @@ footer {
     .hero-sub {
         font-size: 0.82rem;
     }
-    .honeycomb {
-        grid-template-columns: repeat(2, 1fr);
-    }
     .btn {
         padding: 11px 24px;
         font-size: 0.8rem;
+    }
+}
+
+/* ── BRANCH CARDS: TABLET & MOBILE (≤ 1024px) ──
+   Hexagon honeycomb hanya untuk desktop (> 1024px).
+   Di tablet & mobile: kartu kotak, 3 kolom. Dengan 13 cabang jadi
+   4 baris x 3 + 1 kartu terakhir di tengah (flex + justify-content: center,
+   jadi baris terakhir otomatis tetap center walau jumlah cabang berubah). */
+@media (max-width: 1024px) {
+    .honeycomb {
+        --bc-gap: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--bc-gap);
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    .honeycomb > .honeycomb-cell:nth-child(n) {
+        flex: 0 0 calc((100% - 2 * var(--bc-gap)) / 3);
+        width: auto;
+        max-width: calc((100% - 2 * var(--bc-gap)) / 3);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 0;
+        transform: none;
+        grid-row: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--grey-mid);
+    }
+    /* matikan bentuk hexagon & overlay-nya */
+    .honeycomb-cell::before {
+        display: none;
+    }
+    .honeycomb-cell::after {
+        display: none;
+    }
+    .honeycomb .honeycomb-cell_img {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: none;
+        border-radius: 0;
+        filter: none;
+        transform: none;
+        object-fit: cover;
+    }
+    .honeycomb-overlay {
+        padding: 10%;
+    }
+    .honeycomb .branch-logo {
+        width: auto;
+        height: auto;
+        max-width: 80%;
+        max-height: 55%;
+        object-fit: contain;
+        opacity: 1;
+        transform: none;
+    }
+    /* nama + lokasi cabang: muncul saat hover (mouse) / tap (.is-active) */
+    .honeycomb .honeycomb-cell_info {
+        padding: 8px;
+        transform: translateY(8px);
+    }
+    .honeycomb .honeycomb-cell_info h4 {
+        font-size: .8rem;
+        letter-spacing: .5px;
+        margin-bottom: 8px;
+    }
+    .honeycomb .branch-location {
+        font-size: .66rem;
+        padding: 4px 9px;
+    }
+    /* efek yang sama dengan :hover bawaan, dipicu lewat tap */
+    .honeycomb .honeycomb-cell.is-active .honeycomb-cell_img {
+        filter: grayscale(100%) brightness(0.55);
+        transform: scale(1.03);
+    }
+    .honeycomb .honeycomb-cell.is-active .branch-logo {
+        opacity: 0;
+    }
+    .honeycomb .honeycomb-cell.is-active .honeycomb-cell_info {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Layar sentuh: :hover suka "nyangkut" setelah tap, jadi cuma .is-active yang berlaku */
+@media (max-width: 1024px) and (hover: none) {
+    .honeycomb .honeycomb-cell:not(.is-active):hover .honeycomb-cell_img {
+        filter: none;
+        transform: none;
+    }
+    .honeycomb .honeycomb-cell:not(.is-active):hover .branch-logo {
+        opacity: 1;
+    }
+    .honeycomb .honeycomb-cell:not(.is-active):hover .honeycomb-cell_info {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@media (max-width: 600px) {
+    .honeycomb {
+        --bc-gap: 10px;
+    }
+    .honeycomb .branch-logo {
+        max-width: 85%;
+        max-height: 50%;
+    }
+    .honeycomb .honeycomb-cell_info {
+        padding: 4px;
+    }
+    .honeycomb .honeycomb-cell_info h4 {
+        font-size: .58rem;
+        letter-spacing: .3px;
+        line-height: 1.25;
+        margin-bottom: 5px;
+    }
+    .honeycomb .branch-location {
+        font-size: .54rem;
+        gap: 3px;
+        padding: 3px 6px;
     }
 }
