@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#141416">
+    
+    <!-- SEO -->
+    <title>Global Future Lab | Global Aluminium Asia</title>
+    <meta name="description" content="Interactive 3D preview of 61 GLOBALBOND ACP finishes across nine architectural scenes, exterior and interior.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://globalaluminiumasia.com/lab.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Global Future Lab | Global Aluminium Asia">
+    <meta property="og:description" content="Interactive 3D preview of 61 GLOBALBOND ACP finishes across nine architectural scenes.">
+    <meta property="og:url" content="https://globalaluminiumasia.com/lab.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Global Aluminium Asia",
+        "url": "https://globalaluminiumasia.com/",
+        "logo": "https://globalaluminiumasia.com/img/logo.webp",
+        "description": "Indonesia's leading aluminium distribution group with 13 branch companies.",
+        "telephone": ["+62-778-408-4727", "+62-813-5555-051"],
+        "email": "sales@globalaluminiumasia.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Union Industrial Park, Block D No. 5-6, Batu Ampar",
+          "addressLocality": "Batam",
+          "addressRegion": "Riau Islands",
+          "postalCode": "29444",
+          "addressCountry": "ID"
+        }
+      }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.webp" sizes="32x32">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/lab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </head>
+  
+  <body class="lab-page">
+    <nav class="site-nav">
+      <a href="index.html" class="nav-logo">
+        <img src="img/logo.webp" alt="Global Aluminium Asia" decoding="async">
+      </a>
+    
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="network.html">Our Network</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="language-switcher">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="id">ID</button>
+        </div>
+        
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
+      </div>
+    
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="network.html">Our Network</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="mobile-cta">Get a Quote</a>
+
+        <div class="mobile-language-switcher">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="id">ID</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="shell" id="appShell">
+<header class="topbar">
+  <div class="identity"><div class="brand-logo-wrap"><img src="lab/assets/logo.png" alt="GLOBALBOND"></div><span class="brand-rule"></span><div class="brand-copy"><b>GLOBAL FUTURE LAB</b><small>ARCHITECTURAL MATERIAL EXPERIENCE · V6.6 SHADOW STUDIO</small></div></div>
+  <nav class="navbar" aria-label="Pilih kategori ruang"><button class="tab active" data-scene-filter="all">Explore</button><button class="tab" data-scene-filter="exterior">Exterior</button><button class="tab" data-scene-filter="interior">Interior</button></nav>
+  <div class="top-right"><div class="top-count"><i></i>GLOBALBOND · <span id="totalCounter">61</span> FINISHES</div><button id="presentationBtn" class="top-button" title="Presentation mode" aria-label="Presentation mode">⛶</button></div>
+</header>
+<main class="main">
+ <aside class="left"><span class="overline">MATERIAL EXPERIENCES</span><h1>Explore spaces. <em>Shape premium possibilities.</em></h1><p class="intro">Pilih ruang, eksplorasi finishing, dan rasakan bagaimana material GLOBALBOND membentuk pengalaman ruang yang lebih eksklusif.</p><div class="minor-line"></div><div class="stack-label">SELECT A SPACE <small id="sceneCount">9 SCENES</small></div><div class="scene-tabs" aria-hidden="true"></div><div class="scene-list" id="sceneList"></div><div class="left-footer"><b>DESIGNED FOR POSSIBILITIES</b><p>Visualisasi konseptual. Warna dan detail teknis tetap dikonfirmasi dengan sampel fisik asli.</p></div></aside>
+ <section class="stage" id="stage"><div class="stage-head"><div class="stage-name"><span class="green-dot"></span> INTERACTIVE 3D <span>/</span> <strong id="sceneTitle">MODERN RESIDENCE</strong></div><div class="stage-mode">MATERIAL STUDIO</div></div>
+   <div class="viewport" id="viewport"><canvas id="sceneCanvas" aria-label="Interactive 3D architectural material model"></canvas><div class="scene-watermark"><small>GLOBALBOND / SPATIAL EXPERIENCE</small><b id="headlineScene">MODERN<br>RESIDENCE</b><span id="headlineSubtitle">Architecture material study</span></div><div class="viewer-badge"><span class="green-dot"></span><span id="fpsLabel">LOADING 3D</span></div><div class="floor-label"><div class="floor-number" id="sceneNumber">01</div><div><b id="captionTitle">MODERN RESIDENCE</b><span id="captionSubtitle">Premium architecture visualization</span></div></div><div class="viewer-tools"><button id="rotateBtn" title="Auto orbit" aria-label="Auto orbit">↻</button><button id="resetBtn" title="Reset camera" aria-label="Reset camera">⌖</button><button id="daylightBtn" title="Day / night" aria-label="Day night">☼</button></div><div id="viewerError" hidden class="canvas-error">Browser tidak mendukung rendering 3D.</div></div>
+   <div class="bottom-controls"><div class="control-title"><span>BEFORE / AFTER</span><span id="blendPercent">100% FINISHED</span></div><div class="range-line"><span>ORIGINAL</span><input id="blendSlider" aria-label="Compare original and material" type="range" min="0" max="100" value="100"><span>GLOBALBOND</span></div></div>
+   <div class="stage-footer"><div class="stage-tip">DRAG TO ORBIT · SCROLL TO ZOOM</div><button id="captureBtn" class="export">↗ EXPORT HD RENDER</button></div>
+ </section>
+ <aside class="right"><div class="right-top"><div class="right-eyebrow">GLOBALBOND MATERIAL LIBRARY</div><h2 class="right-title">Materials, elevated.</h2><p class="right-intro">Pilih permukaan, lalu eksplorasi <b>61 finishing</b> dalam 8 kategori.</p><div class="section-head">EDITABLE SURFACES <small>SELECT ONE OF THREE</small></div><div class="zones" id="zoneList"></div><div class="chosen"><div class="chosen-thumb" id="chosenThumb"></div><div><b id="chosenName">Dark Grey</b><small id="chosenCode">GA003 · Solid Colors</small></div><span class="chosen-check">✓</span></div><div class="material-status" id="materialStatus" aria-live="polite">Pilih material untuk menerapkan finishing.</div></div>
+  <div class="library"><div class="catalog-head"><b>FINISH COLLECTION</b><small id="matchCount">61 FINISHES</small></div><input id="finishSearch" class="filter-search" type="search" placeholder="Cari warna, kode atau motif…" aria-label="Cari warna dan motif"><div id="categoryList" class="categories"></div><div id="finishList"></div><p class="library-end">Simulasi digital menggunakan referensi katalog. Akurasi warna, kilap dan penerapan material perlu diverifikasi secara teknis.</p></div><div class="right-bottom">GLOBALBOND MATERIAL VISUALIZER</div></aside>
+</main></div><div class="toast" id="toast" role="status"></div>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="img/logo.webp" alt="Global Aluminium Asia" class="footer-logo-img" loading="lazy" decoding="async">
+          <p class="footer-tagline">
+            Building Indonesia with Premium Aluminium Solutions
+          </p>
+    
+          <div class="footer-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Union Industrial Park, Block D No. 5-6, Batu Ampar, Batam 29444, Riau Islands, Indonesia</p>
+          </div>
+        </div>
+    
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="network.html">Our Network</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-col">
+          <h5>Products</h5>
+          <ul>
+            <li><a href="products.html?category=aluminium">Aluminium Extrusion</a></li>
+            <li><a href="products.html?category=acp">Aluminium Composite Panel</a></li>
+            <li><a href="products.html?category=accessories">Accessories</a></li>
+            <li><a href="products.html?category=material">Building Material</a></li>
+            <li><a href="products.html?category=steel">Stainless Steel</a></li>
+            <li><a href="products.html?category=furniture">Furniture</a></li>
+          </ul>
+        </div>
+    
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><i class="fa-solid fa-envelope"></i>sales@globalaluminiumasia.com</li>
+            <li><i class="fa-solid fa-phone"></i>+62 778 408 4727</li>
+            <li><i class="fa-solid fa-mobile-screen-button"></i>+62 813 5555 051</li>
+            <li><i class="fa-solid fa-location"></i>Riau Islands, Indonesia</li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Global Aluminium Asia. All Rights Reserved.</div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* Site navbar: mobile menu, language switcher, navbar-height sync (same logic as index.html) */
+      (() => {
+        const nav = document.querySelector('nav.site-nav');
+        const navHamburger = document.getElementById('navHamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // ── Mobile menu
+        if (navHamburger && mobileMenu) {
+          navHamburger.addEventListener('click', () => {
+            navHamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+          });
+
+          mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              navHamburger.classList.remove('open');
+              mobileMenu.classList.remove('open');
+            });
+          });
+        }
+
+        // ── Keep --site-nav-h equal to the real (fixed) navbar height, so pages
+        //    that offset their content (css/lab.css) never drift if the navbar changes.
+        if (nav) {
+          const syncNavHeight = () => {
+            document.documentElement.style.setProperty('--site-nav-h', nav.offsetHeight + 'px');
+          };
+          syncNavHeight();
+          window.addEventListener('resize', syncNavHeight);
+          if ('ResizeObserver' in window) new ResizeObserver(syncNavHeight).observe(nav);
+          if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncNavHeight);
+        }
+
+        // ── Language switcher
+        const langButtons = document.querySelectorAll('[data-lang]');
+
+        if (langButtons.length) {
+          const currentPath = window.location.pathname;
+          const isIndonesian = currentPath.startsWith('/id/');
+
+          langButtons.forEach(button => {
+            const lang = button.dataset.lang;
+
+            // Mark the active language
+            if ((lang === 'id' && isIndonesian) || (lang === 'en' && !isIndonesian)) {
+              button.classList.add('active');
+            }
+
+            button.addEventListener('click', () => {
+              const query = window.location.search;
+              const hash = window.location.hash;
+
+              if (lang === 'id' && !isIndonesian) {
+                // English → Indonesia
+                let page = currentPath.replace(/^\//, '');
+                if (page === '' || page === 'index.html') page = 'index.html';
+                window.location.href = `/id/${page}${query}${hash}`;
+              }
+
+              if (lang === 'en' && isIndonesian) {
+                // Indonesia → English
+                const page = currentPath.replace(/^\/id\//, '');
+                if (page === '' || page === 'index.html') {
+                  window.location.href = `/${query}${hash}`;
+                } else {
+                  window.location.href = `/${page}${query}${hash}`;
+                }
+              }
+            });
+          });
+        }
+      })();
+    </script>
+    <script src="lab/materials.js"></script>
+    <script src="lab/pixels.js"></script>
+    <script src="lab/lab.js"></script>
+  </body>
+</html>
