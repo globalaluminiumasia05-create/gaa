@@ -93,21 +93,150 @@
     </nav>
 
     <div class="shell" id="appShell">
-<header class="topbar">
-  <div class="identity"><div class="brand-logo-wrap"><img src="lab/assets/logo.png" alt="GLOBALBOND"></div><span class="brand-rule"></span><div class="brand-copy"><b>GLOBAL FUTURE LAB</b><small>ARCHITECTURAL MATERIAL EXPERIENCE · V6.6 SHADOW STUDIO</small></div></div>
-  <nav class="navbar" aria-label="Pilih kategori ruang"><button class="tab active" data-scene-filter="all">Explore</button><button class="tab" data-scene-filter="exterior">Exterior</button><button class="tab" data-scene-filter="interior">Interior</button></nav>
-  <div class="top-right"><div class="top-count"><i></i>GLOBALBOND · <span id="totalCounter">61</span> FINISHES</div><button id="presentationBtn" class="top-button" title="Presentation mode" aria-label="Presentation mode">⛶</button></div>
-</header>
-<main class="main">
- <aside class="left"><span class="overline">MATERIAL EXPERIENCES</span><h1>Explore spaces. <em>Shape premium possibilities.</em></h1><p class="intro">Pilih ruang, eksplorasi finishing, dan rasakan bagaimana material GLOBALBOND membentuk pengalaman ruang yang lebih eksklusif.</p><div class="minor-line"></div><div class="stack-label">SELECT A SPACE <small id="sceneCount">9 SCENES</small></div><div class="scene-tabs" aria-hidden="true"></div><div class="scene-list" id="sceneList"></div><div class="left-footer"><b>DESIGNED FOR POSSIBILITIES</b><p>Visualisasi konseptual. Warna dan detail teknis tetap dikonfirmasi dengan sampel fisik asli.</p></div></aside>
- <section class="stage" id="stage"><div class="stage-head"><div class="stage-name"><span class="green-dot"></span> INTERACTIVE 3D <span>/</span> <strong id="sceneTitle">MODERN RESIDENCE</strong></div><div class="stage-mode">MATERIAL STUDIO</div></div>
-   <div class="viewport" id="viewport"><canvas id="sceneCanvas" aria-label="Interactive 3D architectural material model"></canvas><div class="scene-watermark"><small>GLOBALBOND / SPATIAL EXPERIENCE</small><b id="headlineScene">MODERN<br>RESIDENCE</b><span id="headlineSubtitle">Architecture material study</span></div><div class="viewer-badge"><span class="green-dot"></span><span id="fpsLabel">LOADING 3D</span></div><div class="floor-label"><div class="floor-number" id="sceneNumber">01</div><div><b id="captionTitle">MODERN RESIDENCE</b><span id="captionSubtitle">Premium architecture visualization</span></div></div><div class="viewer-tools"><button id="rotateBtn" title="Auto orbit" aria-label="Auto orbit">↻</button><button id="resetBtn" title="Reset camera" aria-label="Reset camera">⌖</button><button id="daylightBtn" title="Day / night" aria-label="Day night">☼</button></div><div id="viewerError" hidden class="canvas-error">Browser tidak mendukung rendering 3D.</div></div>
-   <div class="bottom-controls"><div class="control-title"><span>BEFORE / AFTER</span><span id="blendPercent">100% FINISHED</span></div><div class="range-line"><span>ORIGINAL</span><input id="blendSlider" aria-label="Compare original and material" type="range" min="0" max="100" value="100"><span>GLOBALBOND</span></div></div>
-   <div class="stage-footer"><div class="stage-tip">DRAG TO ORBIT · SCROLL TO ZOOM</div><button id="captureBtn" class="export">↗ EXPORT HD RENDER</button></div>
- </section>
- <aside class="right"><div class="right-top"><div class="right-eyebrow">GLOBALBOND MATERIAL LIBRARY</div><h2 class="right-title">Materials, elevated.</h2><p class="right-intro">Pilih permukaan, lalu eksplorasi <b>61 finishing</b> dalam 8 kategori.</p><div class="section-head">EDITABLE SURFACES <small>SELECT ONE OF THREE</small></div><div class="zones" id="zoneList"></div><div class="chosen"><div class="chosen-thumb" id="chosenThumb"></div><div><b id="chosenName">Dark Grey</b><small id="chosenCode">GA003 · Solid Colors</small></div><span class="chosen-check">✓</span></div><div class="material-status" id="materialStatus" aria-live="polite">Pilih material untuk menerapkan finishing.</div></div>
-  <div class="library"><div class="catalog-head"><b>FINISH COLLECTION</b><small id="matchCount">61 FINISHES</small></div><input id="finishSearch" class="filter-search" type="search" placeholder="Cari warna, kode atau motif…" aria-label="Cari warna dan motif"><div id="categoryList" class="categories"></div><div id="finishList"></div><p class="library-end">Simulasi digital menggunakan referensi katalog. Akurasi warna, kilap dan penerapan material perlu diverifikasi secara teknis.</p></div><div class="right-bottom">GLOBALBOND MATERIAL VISUALIZER</div></aside>
-</main></div><div class="toast" id="toast" role="status"></div>
+      <header class="topbar">
+        <div class="identity">
+          <div class="brand-logo-wrap">
+            <img src="lab-assets/assets/logo.png" alt="GLOBALBOND">
+          </div>
+          
+          <span class="brand-rule"></span>
+          <div class="brand-copy">
+            <b>GLOBAL FUTURE LAB</b>
+            <small>ARCHITECTURAL MATERIAL EXPERIENCE · V6.6 SHADOW STUDIO</small>
+          </div>
+        </div>
+
+        <nav class="navbar" aria-label="Pilih kategori ruang">
+          <button class="tab active" data-scene-filter="all">Explore</button>
+          <button class="tab" data-scene-filter="exterior">Exterior</button>
+          <button class="tab" data-scene-filter="interior">Interior</button>
+        </nav>
+        
+        <div class="top-right">
+          <div class="top-count">
+            <i></i>GLOBALBOND · <span id="totalCounter">61</span> FINISHES
+          </div>
+          
+          <button id="presentationBtn" class="top-button" title="Presentation mode" aria-label="Presentation mode">⛶</button>
+        </div>
+      </header>
+      
+      <main class="main">
+        <aside class="left">
+          <span class="overline">MATERIAL EXPERIENCES</span>
+          <h1>Explore spaces.
+            <em>Shape premium possibilities.</em>
+          </h1>
+          
+          <p class="intro">Pilih ruang, eksplorasi finishing, dan rasakan bagaimana material GLOBALBOND membentuk pengalaman ruang yang lebih eksklusif.</p>
+          <div class="minor-line"></div>
+          
+          <div class="stack-label">
+            SELECT A SPACE <small id="sceneCount">9 SCENES</small>
+          </div>
+          
+          <div class="scene-tabs" aria-hidden="true"></div>
+          <div class="scene-list" id="sceneList"></div>
+          
+          <div class="left-footer">
+            <b>DESIGNED FOR POSSIBILITIES</b>
+            <p>Visualisasi konseptual. Warna dan detail teknis tetap dikonfirmasi dengan sampel fisik asli.</p>
+          </div>
+        </aside>
+        
+        <section class="stage" id="stage">
+          <div class="stage-head">
+            <div class="stage-name">
+              <span class="green-dot"></span> INTERACTIVE 3D <span>/</span> <strong id="sceneTitle">MODERN RESIDENCE</strong>
+            </div>
+          
+            <div class="stage-mode">MATERIAL STUDIO</div>
+          </div>
+
+          <div class="viewport" id="viewport">
+            <canvas id="sceneCanvas" aria-label="Interactive 3D architectural material model"></canvas>
+            <div class="scene-watermark">
+              <small>GLOBALBOND / SPATIAL EXPERIENCE</small>
+              <b id="headlineScene">MODERN<br>RESIDENCE</b>
+              <span id="headlineSubtitle">Architecture material study</span>
+            </div>
+
+            <div class="viewer-badge">
+              <span class="green-dot"></span>
+              <span id="fpsLabel">LOADING 3D</span>
+            </div>
+            
+            <div class="floor-label">
+              <div class="floor-number" id="sceneNumber">01</div>
+              <div>
+                <b id="captionTitle">MODERN RESIDENCE</b><span id="captionSubtitle">Premium architecture visualization</span>
+              </div>
+            </div>
+
+            <div class="viewer-tools">
+              <button id="rotateBtn" title="Auto orbit" aria-label="Auto orbit">↻</button>
+              <button id="resetBtn" title="Reset camera" aria-label="Reset camera">⌖</button>
+              <button id="daylightBtn" title="Day / night" aria-label="Day night">☼</button>
+            </div>
+            
+            <div id="viewerError" hidden class="canvas-error">Browser tidak mendukung rendering 3D.</div>
+          </div>
+          
+          <div class="bottom-controls">
+            <div class="control-title">
+              <span>BEFORE / AFTER</span>
+              <span id="blendPercent">100% FINISHED</span>
+            </div>
+            
+            <div class="range-line">
+              <span>ORIGINAL</span>
+              <input id="blendSlider" aria-label="Compare original and material" type="range" min="0" max="100" value="100"><span>GLOBALBOND</span>
+            </div>
+          </div>
+          
+          <div class="stage-footer">
+            <div class="stage-tip">DRAG TO ORBIT · SCROLL TO ZOOM</div>
+            <button id="captureBtn" class="export">↗ EXPORT HD RENDER</button>
+          </div>
+        </section>
+        
+        <aside class="right">
+          <div class="right-top">
+            <div class="right-eyebrow">GLOBALBOND MATERIAL LIBRARY</div>
+            <h2 class="right-title">Materials, elevated.</h2>
+            <p class="right-intro">Pilih permukaan, lalu eksplorasi <b>61 finishing</b> dalam 8 kategori.</p>
+            <div class="section-head">EDITABLE SURFACES <small>SELECT ONE OF THREE</small></div><div class="zones" id="zoneList"></div>
+            <div class="chosen">
+              <div class="chosen-thumb" id="chosenThumb"></div>
+              
+              <div>
+                <b id="chosenName">Dark Grey</b><small id="chosenCode">GA003 · Solid Colors</small>
+              </div>
+              
+              <span class="chosen-check">✓</span>
+            </div>
+            
+            <div class="material-status" id="materialStatus" aria-live="polite">Pilih material untuk menerapkan finishing.</div>
+          </div>
+          
+          <div class="library">
+            <div class="catalog-head">
+              <b>FINISH COLLECTION</b><small id="matchCount">61 FINISHES</small>
+            </div>
+            
+            <input id="finishSearch" class="filter-search" type="search" placeholder="Cari warna, kode atau motif…" aria-label="Cari warna dan motif">
+            
+            <div id="categoryList" class="categories"></div>
+            <div id="finishList"></div>
+            <p class="library-end">Simulasi digital menggunakan referensi katalog. Akurasi warna, kilap dan penerapan material perlu diverifikasi secara teknis.</p>
+          </div>
+          
+          <div class="right-bottom">GLOBALBOND MATERIAL VISUALIZER</div>
+        </aside>
+      </main>
+    </div>
+    
+    <div class="toast" id="toast" role="status"></div>
 
     <footer>
       <div class="footer-top">
@@ -242,8 +371,8 @@
         }
       })();
     </script>
-    <script src="lab/materials.js"></script>
-    <script src="lab/pixels.js"></script>
-    <script src="lab/lab.js"></script>
+    <script src="lab-assets/materials.js"></script>
+    <script src="lab-assets/pixels.js"></script>
+    <script src="lab-assets/lab.js"></script>
   </body>
 </html>

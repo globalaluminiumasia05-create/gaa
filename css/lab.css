@@ -665,3 +665,149 @@ body.lab-page footer {
 body.lab-page:has(.shell.presentation) nav.site-nav {
   display: none;
 }
+
+/* ==========================================================================
+   RESPONSIVE FIXES (V6.6 refinement rules used !important and overrode the
+   mobile layout: fixed-height top bar, vertical scene list). Restored here.
+   ========================================================================== */
+
+/* tablet + phone (≤ 850px) */
+@media (max-width: 850px) {
+  .topbar {
+    height: auto !important;
+    min-height: 58px !important;
+    padding: 9px 11px !important;
+    flex-wrap: wrap;
+    border-radius: 16px !important;
+  }
+  .navbar {
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+  .navbar .tab {
+    flex: 1;
+    padding: 10px 6px !important;
+    min-width: 0;
+  }
+
+  /* scene picker: compact horizontal strip instead of 9 tall cards */
+  .left {
+    padding: 12px 10px 10px !important;
+  }
+  .scene-list {
+    flex: none;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 7px !important;
+    padding: 0 2px 6px;
+    min-height: 0;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scene-item {
+    flex: 0 0 158px;
+    min-height: 54px !important;
+    scroll-snap-align: start;
+  }
+  .scene-item:hover {
+    transform: none;
+  }
+
+  /* stage overlays: restore the compact mobile geometry */
+  .stage-footer {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    height: 55px !important;
+    padding: 0 9px !important;
+  }
+}
+
+/* phone (≤ 550px) */
+@media (max-width: 550px) {
+  .topbar {
+    gap: 8px;
+  }
+  .brand-copy b {
+    font-size: 11px;
+  }
+  .shell {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+  .library {
+    max-height: 460px;
+  }
+}
+
+/* narrow desktop / small laptop (851px – 1100px): keep the top bar on one line */
+@media (min-width: 851px) and (max-width: 1100px) {
+  .topbar {
+    padding: 0 12px !important;
+    gap: 10px;
+  }
+  .top-count {
+    display: none;
+  }
+  .navbar .tab {
+    padding: 10px 12px !important;
+  }
+  .left h1 {
+    font-size: 20px !important;
+  }
+}
+
+/* overlay + scene-card polish (≤ 850px) */
+@media (max-width: 850px) {
+  /* keep the scene label and viewer tools above the before/after bar */
+  .floor-label,
+  .viewer-tools {
+    bottom: 134px !important;
+  }
+  /* wider cards so scene names are not cut off (scene number is hidden here) */
+  .scene-item {
+    flex-basis: 172px;
+    grid-template-columns: 37px minmax(0, 1fr);
+  }
+}
+
+/* phone: the scene label must not run under the viewer tools */
+@media (max-width: 550px) {
+  .floor-label {
+    max-width: calc(100% - 160px);
+  }
+  .floor-label span {
+    display: none;
+  }
+}
+
+/* all widths: scene label and viewer tools sit above the before/after bar (it covered them by ~30px) */
+.floor-label,
+.viewer-tools {
+  bottom: 134px !important;
+}
+
+/* ── NAVBAR: layar menengah (769px – 1279px) ── */
+/* Link tidak boleh turun baris (container absolut left:50% hanya selebar 50% nav) */
+nav.site-nav .nav-links a { white-space: nowrap; }
+
+/* 1101px – 1279px: rapatkan sedikit supaya muat */
+@media (min-width: 1101px) and (max-width: 1279px) {
+  nav.site-nav { padding: 15px 48px; }
+  nav.site-nav .nav-links { gap: 22px; }
+  nav.site-nav .nav-links a { font-size: 0.8rem; letter-spacing: 1.2px; }
+}
+
+/* ≤ 1100px: pakai hamburger (menu mobile yang sudah ada) */
+@media (max-width: 1100px) {
+  nav.site-nav { padding: 12px 48px; }
+  nav.site-nav .nav-links,
+  nav.site-nav .nav-right,
+  nav.site-nav .nav-cta { display: none; }
+  nav.site-nav .nav-hamburger { display: flex; margin-left: auto; }
+}
+@media (max-width: 768px) {
+  nav.site-nav { padding: 12px 20px; }
+}
