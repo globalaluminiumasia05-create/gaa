@@ -435,7 +435,7 @@ window.GFL_MATERIALS = [
         "code":"GA008",
         "name":"Silver Grey",
         "category":"metallic",
-        "texture":"lab/assets/textures/GA008-silver-grey.jpg",
+        "texture":"/lab/assets/textures/GA008-silver-grey.jpg",
         "rgb":[0.608,0.612,0.624],
         "gloss":0.7,
         "source":4
@@ -480,7 +480,7 @@ window.GFL_MATERIALS = [
         "code":"GA013",
         "name":"Silver Blue",
         "category":"metallic",
-        "texture":"lab/assets/textures/GA013-silver-blue.jpg",
+        "texture":"/lab/assets/textures/GA013-silver-blue.jpg",
         "rgb":[0.475,0.604,0.729],
         "gloss":0.7,
         "source":4
@@ -516,7 +516,7 @@ window.GFL_MATERIALS = [
         "code":"GA058",
         "name":"Pearl Red",
         "category":"sparkling",
-        "texture":"lab-assets/assets/textures/GA058-pearl-red.jpg",
+        "texture":"/lab-assets/assets/textures/GA058-pearl-red.jpg",
         "rgb":[1.0,0.0,0.0],
         "gloss":0.7,
         "source":4
@@ -525,7 +525,7 @@ window.GFL_MATERIALS = [
         "code":"GA060",
         "name":"Pearl Black",
         "category":"sparkling",
-        "texture":"lab-assets/assets/textures/GA060-pearl-black.jpg",
+        "texture":"/lab-assets/assets/textures/GA060-pearl-black.jpg",
         "rgb":[0.0,0.0,0.0],
         "gloss":0.7,
         "source":4

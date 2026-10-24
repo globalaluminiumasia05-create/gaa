@@ -221,6 +221,20 @@ main{gap:14px !important;}
    If you change the navbar or footer, update it in every page stylesheet.
    ========================================================================== */
 
+:root {
+  --container-space: 120px;
+  --red: #AA292E;
+  --red-dark: #7E1E22;
+  --red-light: #C23035;
+  --grey-dark: #141416;
+  --grey-mid: #252528;
+  --grey-light: #8E8E93;
+  --white: #FFFFFF;
+  --silver: #C4C4C6;
+  /* height of the fixed site navbar; the inline script in lab.html overwrites it with the measured value */
+  --site-nav-h: 76px;
+}
+
 nav.site-nav {
   align-items: center;
   background: rgba(20, 20, 22, 0.96);
@@ -372,6 +386,87 @@ nav.site-nav {
 }
 .nav-hamburger.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+.mobile-menu {
+  background: rgba(14, 14, 16, 0.98);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(170, 40, 45, 0.2);
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+  z-index: 150;
+}
+.mobile-menu.open {
+  max-height: 420px;
+  opacity: 1;
+  padding: 6px 20px 16px;
+}
+.mobile-menu a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--silver);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  padding: 14px 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover,
+.mobile-menu a.active {
+  color: var(--red);
+}
+.mobile-menu .mobile-cta {
+  background: var(--red);
+  border: none;
+  border-bottom: none;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  color: var(--white);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  margin-top: 12px;
+  padding: 13px 24px;
+  text-align: center;
+  text-decoration: none;
+}
+.mobile-language-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 16px;
+}
+.mobile-language-switcher button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #555;
+  background: #242427;
+  color: #888;
+  padding: 6px 9px;
+  margin: 0;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .5px;
+  cursor: pointer;
+}
+.mobile-language-switcher button:hover {
+  color: #fff;
+  border-color: var(--red);
+}
+.mobile-language-switcher button.active {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
 }
 .mobile-menu {
   background: rgba(14, 14, 16, 0.98);
@@ -810,4 +905,13 @@ nav.site-nav .nav-links a { white-space: nowrap; }
 }
 @media (max-width: 768px) {
   nav.site-nav { padding: 12px 20px; }
+}
+
+/* ── Lab portal integration: fit the portal under the fixed navbar ── */
+body.lab-page {
+  padding-top: var(--site-nav-h);
+  font-family: 'Barlow', sans-serif;
+}
+body.lab-page .app {
+  height: calc(100dvh - var(--site-nav-h));
 }
