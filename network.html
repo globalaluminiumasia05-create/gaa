@@ -7,46 +7,107 @@
     
     <!-- SEO -->
     <title>Our Network | Global Aluminium Asia</title>
-    <meta name="description" content="Explore Global Aluminium Asia's nationwide network of 13 branch companies across Indonesia, delivering aluminium profiles, ACP, stainless steel, and construction materials with reliable nationwide distribution.">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="Explore Global Aluminium Asia's network of 13 branch companies across Indonesia, supplying aluminium profiles, ACP, stainless steel, and construction materials.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://globalaluminiumasia.com/network">
 
     <link rel="alternate" hreflang="en" href="https://globalaluminiumasia.com/network">
     <link rel="alternate" hreflang="id" href="https://globalaluminiumasia.com/id/network">
     <link rel="alternate" hreflang="x-default" href="https://globalaluminiumasia.com/network">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Global Aluminium Asia">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="id_ID">
     <meta property="og:title" content="Our Network | Global Aluminium Asia">
-    <meta property="og:description" content="Discover our network of 13 companies serving Indonesia with aluminium, ACP, stainless steel, and building material solutions.">
+    <meta property="og:description" content="Explore Global Aluminium Asia's network of 13 branch companies across Indonesia, supplying aluminium profiles, ACP, stainless steel, and construction materials.">
     <meta property="og:url" content="https://globalaluminiumasia.com/network">
+    <meta property="og:image" content="https://globalaluminiumasia.com/img/hero1.webp">
+    <meta property="og:image:alt" content="Global Aluminium Asia - premium aluminium distributor in Indonesia">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Network | Global Aluminium Asia">
+    <meta name="twitter:description" content="Explore Global Aluminium Asia's network of 13 branch companies across Indonesia, supplying aluminium profiles, ACP, stainless steel, and construction materials.">
+    <meta name="twitter:image" content="https://globalaluminiumasia.com/img/hero1.webp">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Global Aluminium Asia",
-        "url": "https://globalaluminiumasia.com/",
-        "logo": "https://globalaluminiumasia.com/img/logo.webp",
-        "description": "Indonesia's leading aluminium distribution group with 13 branch companies.",
-        "telephone": ["+62-778-408-4727", "+62-813-5555-051"],
-        "email": "sales@globalaluminiumasia.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Union Industrial Park, Block D No. 5-6, Batu Ampar",
-          "addressLocality": "Batam",
-          "addressRegion": "Riau Islands",
-          "postalCode": "29444",
-          "addressCountry": "ID"
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://globalaluminiumasia.com/#organization",
+            "name": "Global Aluminium Asia",
+            "url": "https://globalaluminiumasia.com/",
+            "logo": "https://globalaluminiumasia.com/img/logo.webp",
+            "foundingDate": "2016",
+            "description": "Indonesia's leading aluminium distribution group with 13 branch companies.",
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "Golden Group"
+            },
+            "telephone": [
+              "+62-778-408-4727",
+              "+62-813-5555-051"
+            ],
+            "email": "sales@globalaluminiumasia.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Union Industrial Park, Block D No. 5-6, Batu Ampar",
+              "addressLocality": "Batam",
+              "addressRegion": "Riau Islands",
+              "postalCode": "29444",
+              "addressCountry": "ID"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://globalaluminiumasia.com/network#webpage",
+            "url": "https://globalaluminiumasia.com/network",
+            "name": "Our Network | Global Aluminium Asia",
+            "description": "Explore Global Aluminium Asia's network of 13 branch companies across Indonesia, supplying aluminium profiles, ACP, stainless steel, and construction materials.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://globalaluminiumasia.com/#website"
+            },
+            "about": {
+              "@id": "https://globalaluminiumasia.com/#organization"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://globalaluminiumasia.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Our Network",
+                "item": "https://globalaluminiumasia.com/network"
+              }
+            ]
+          }
+        ]
       }
     </script>
-    
+
     <!-- Favicon -->
-    <link rel="icon" href="img/favicon.webp" sizes="32x32">
+    <link rel="icon" href="/img/favicon.webp" type="image/webp" sizes="32x32">
     
     <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="css/network.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   </head>
@@ -363,7 +424,7 @@
           <p>From Batam to Surabaya, we continue expanding our reach.</p>
           <div class="coverage-pills">
             <span class="cov-pill">Batam, Riau Islands</span>
-            <span class="cov-pill">Tanjung Pinang, Riau Islands</span>
+            <span class="cov-pill">Tanjungpinang, Riau Islands</span>
             <span class="cov-pill">Pekanbaru, Riau</span>
             <span class="cov-pill">Jakarta, DKI Jakarta</span>
             <span class="cov-pill">Surabaya, East Java</span>
@@ -462,7 +523,6 @@
         langButtons.forEach(button => {
           const lang = button.dataset.lang;
           
-          // Tandai bahasa yang sedang aktif
           if (
             (lang === 'id' && isIndonesian) ||
             (lang === 'en' && !isIndonesian)
@@ -475,7 +535,6 @@
             const hash = window.location.hash;
             
             if (lang === 'id' && !isIndonesian) {
-              // English → Indonesia
               let page = currentPath.replace(/^\//, '');
               
               if (page === '' || page === 'index.html') {
@@ -486,7 +545,6 @@
             }
             
             if (lang === 'en' && isIndonesian) {
-              // Indonesia → English
               let page = currentPath.replace(/^\/id\//, '');
               
               if (page === '' || page === 'index.html') {
@@ -540,12 +598,10 @@
             
             const wasActive = card.classList.contains("is-active");
             
-            // Reset semua card
             cards.forEach((item) => {
               item.classList.remove("is-active");
             });
             
-            // Toggle card yang ditekan
             if (!wasActive) {
               card.classList.add("is-active");
             }

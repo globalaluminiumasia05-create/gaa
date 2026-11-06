@@ -1,19 +1,95 @@
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="theme-color" content="#0a0b0f"/>
-<title>Global Future Lab | Global Aluminium Asia</title>
-<meta name="description" content="Interactive 3D preview of GLOBALBOND ACP finishes and GLOBALUMINIUM hollow aluminium across architectural scenes, exterior and interior.">
-<meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://globalaluminiumasia.com/lab.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Global Future Lab | Global Aluminium Asia">
-<meta property="og:description" content="Interactive 3D preview of GLOBALBOND ACP and GLOBALUMINIUM hollow aluminium in architectural scenes.">
-<meta property="og:url" content="https://globalaluminiumasia.com/lab.html">
-<link rel="icon" href="img/favicon.webp" sizes="32x32">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0a0b0f">
+
+    <!-- SEO -->
+    <title>Global Future Lab | Global Aluminium Asia</title>
+    <meta name="description" content="Interactive 3D preview of GLOBALBOND ACP finishes and GLOBALUMINIUM hollow aluminium across architectural scenes, exterior and interior.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://globalaluminiumasia.com/lab">
+
+    <link rel="alternate" hreflang="en" href="https://globalaluminiumasia.com/lab">
+    <link rel="alternate" hreflang="id" href="https://globalaluminiumasia.com/id/lab">
+    <link rel="alternate" hreflang="x-default" href="https://globalaluminiumasia.com/lab">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Global Future Lab | Global Aluminium Asia">
+    <meta property="og:description" content="Interactive 3D preview of GLOBALBOND ACP and GLOBALUMINIUM hollow aluminium in architectural scenes.">
+    <meta property="og:url" content="https://globalaluminiumasia.com/lab">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="id_ID">
+    <meta property="og:site_name" content="Global Aluminium Asia">
+    <meta property="og:image" content="https://globalaluminiumasia.com/img/hero1.webp">
+    <meta property="og:image:alt" content="Global Future Lab - interactive 3D preview of ACP and hollow aluminium">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Global Future Lab | Global Aluminium Asia">
+    <meta name="twitter:description" content="Interactive 3D preview of GLOBALBOND ACP and GLOBALUMINIUM hollow aluminium in architectural scenes.">
+    <meta name="twitter:image" content="https://globalaluminiumasia.com/img/hero1.webp">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://globalaluminiumasia.com/#organization",
+            "name": "Global Aluminium Asia",
+            "url": "https://globalaluminiumasia.com/",
+            "logo": "https://globalaluminiumasia.com/img/logo.webp"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://globalaluminiumasia.com/lab#webpage",
+            "url": "https://globalaluminiumasia.com/lab",
+            "name": "Global Future Lab | Global Aluminium Asia",
+            "description": "Interactive 3D preview of GLOBALBOND ACP finishes and GLOBALUMINIUM hollow aluminium across architectural scenes, exterior and interior.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://globalaluminiumasia.com/#website"
+            },
+            "about": {
+              "@id": "https://globalaluminiumasia.com/#organization"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://globalaluminiumasia.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Global Future Lab",
+                "item": "https://globalaluminiumasia.com/lab"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.webp" type="image/webp" sizes="32x32">
+
+    <!-- Fonts (dimuat paralel dengan CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap">
+
 <style id="siteNavCss">
-/* Site navbar for lab.html (extracted from lab.css so the portal does not need the old lab stylesheet) */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap');
 
 :root {
@@ -26,7 +102,6 @@
   --grey-light: #8E8E93;
   --white: #FFFFFF;
   --silver: #C4C4C6;
-  /* height of the fixed site navbar; the inline script in lab.html overwrites it with the measured value */
   --site-nav-h: 76px;
 }
 
@@ -269,7 +344,6 @@ nav.site-nav {
 }
 
 /* ── NAVBAR: layar menengah (769px – 1279px) ── */
-/* Link tidak boleh turun baris (container absolut left:50% hanya selebar 50% nav) */
 nav.site-nav .nav-links a { white-space: nowrap; }
 
 /* 1101px – 1279px: rapatkan sedikit supaya muat */
@@ -291,7 +365,6 @@ nav.site-nav .nav-links a { white-space: nowrap; }
   nav.site-nav { padding: 12px 20px; }
 }
 
-/* ── Lab portal integration: fit the portal under the fixed navbar, allow page scroll ── */
 body.lab-page {
   padding-top: var(--site-nav-h);
   font-family: 'Barlow', sans-serif;
@@ -463,7 +536,6 @@ switchModule('acp');
         }
 
         // ── Keep --site-nav-h equal to the real (fixed) navbar height, so pages
-        //    that offset their content (css/lab.css) never drift if the navbar changes.
         if (nav) {
           const syncNavHeight = () => {
             document.documentElement.style.setProperty('--site-nav-h', nav.offsetHeight + 'px');
@@ -484,7 +556,6 @@ switchModule('acp');
           langButtons.forEach(button => {
             const lang = button.dataset.lang;
 
-            // Mark the active language
             if ((lang === 'id' && isIndonesian) || (lang === 'en' && !isIndonesian)) {
               button.classList.add('active');
             }
@@ -494,14 +565,12 @@ switchModule('acp');
               const hash = window.location.hash;
 
               if (lang === 'id' && !isIndonesian) {
-                // English → Indonesia
                 let page = currentPath.replace(/^\//, '');
                 if (page === '' || page === 'index.html') page = 'index.html';
                 window.location.href = `/id/${page}${query}${hash}`;
               }
 
               if (lang === 'en' && isIndonesian) {
-                // Indonesia → English
                 const page = currentPath.replace(/^\/id\//, '');
                 if (page === '' || page === 'index.html') {
                   window.location.href = `/${query}${hash}`;
